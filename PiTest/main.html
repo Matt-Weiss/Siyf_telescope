@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+  <title>Blink Test</title>
+</head>
+
+<body>
+  <h1>Blink Test</h1>
+  {% for pin in pins %}
+  <h2>{{ pins[pin].name}}
+  {% if pins[pin].state == true %}
+    is currently <strong>on</strong></h2><div class="row><div class="col-md-2">
+    <a href="/{{pin}}/off" class="btn btn-block btn-lg btn-default" role="button">Turn Off</a></div></div>
+  {% else %}
+    is currently <strong>off</strong></h2><div class="row><div class="col-md-2">
+    <a href="/{{pin}}/on" class="btn btn-block btn-lg btn-default" role="button">Turn On</a></div></div>
+  {% endif %}
+  {% endfor %}
+</body>
+</html>
