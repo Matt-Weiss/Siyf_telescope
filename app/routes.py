@@ -10,12 +10,7 @@ def root():
 
 @app.route('/scopetest')
 def scopetest():
-    start()
-    track()
-    zero()
-    return "success"
-
-def start():
+ 
     start_ra_steps = int(request.args.get('move_to_start_ra' ))
     start_dec_steps = int(request.args.get('move_to_start_dec' ))
     if start_dec_steps > 0 and start_ra_steps > 0:
@@ -30,9 +25,7 @@ def start():
     else:
         declination_1.backwards( 1, abs(start_dec_steps)  )
         ascension.backwards( 1, abs(start_ra_steps)  )
-    return "success"
-
-def track():
+    
     track_dec_delay = int(request.args.get('track_dec_delay' ))
     track_dec_steps = int(request.args.get('track_dec_steps' ))
     track_ra_delay = int(request.args.get('track_ra_delay' ))
@@ -49,9 +42,7 @@ def track():
     else:
         declination_1.backwards( track_dec_delay, abs(track_dec_steps)  )
         ascension.backwards( track_ra_delay, abs(track_ra_steps)  )
-    return "success"
 
-def zero():
     return_home_ra_steps = int(request.args.get('return_home_ra_steps' ))
     return_home_dec_steps = int(request.args.get('return_home_dec_steps' ))
     if return_home_dec_steps > 0 and return_home_dec_steps > 0:
@@ -90,14 +81,9 @@ def zero():
 #        ascension.backwards( 1, start_ra_steps )
 #    return "success"
 #
-@app.route('/scopetrack')
-def scopetrack():
-    start
-    track
-    zero
-    return "success"
-
-def start():
+#@app.route('/scopetrack')
+#def scopetrack():
+  
     start_ra_steps = int(request.args.get('move_to_start_ra' ))
     start_dec_steps = int(request.args.get('move_to_start_dec' ))
     if start_dec_steps > 0 and start_ra_steps > 0:
@@ -112,9 +98,7 @@ def start():
     else:
         declination_1.backwards( 1, start_dec_steps )
         ascension.backwards( 1, start_ra_steps )
-    return "success"
 
-def track():
     track_dec_delay = int(request.args.get('track_dec_delay' ))
     track_dec_steps = int(request.args.get('track_dec_steps' ))
     track_ra_delay = int(request.args.get('track_ra_delay' ))
@@ -131,9 +115,7 @@ def track():
     else:
         declination_1.backwards( track_dec_delay, track_dec_steps )
         ascension.backwards( track_ra_delay, track_ra_steps )
-    return "success"
-
-def zero():
+  
     return_home_ra_steps = int(request.args.get('return_home_ra_steps' ))
     return_home_dec_steps = int(request.args.get('return_home_dec_steps' ))
     if return_home_dec_steps > 0 and return_home_dec_steps > 0:
